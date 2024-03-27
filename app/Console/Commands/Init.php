@@ -53,13 +53,13 @@ class Init extends BaseCommand
                 'name'        => 'Student management',
                 'slug'        => 'student.management',
                 'http_method' => '',
-                'http_path'   => '/person/students',
+                'http_path'   => '/person/students*',
             ],
             [
                 'name'        => 'Teacher management',
                 'slug'        => 'teacher.management',
                 'http_method' => '',
-                'http_path'   => '/person/teachers',
+                'http_path'   => '/person/teachers*',
             ],
         ]);
 
