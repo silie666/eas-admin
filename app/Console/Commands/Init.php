@@ -20,7 +20,10 @@ class Init extends BaseCommand
 
     public function handle()
     {
-//        $this->call('migrate:fresh');
+        if (DB::table('students')->count() > 0) {
+            $this->error('Database has been initialized');
+            return;
+        }
         DB::table('admin_menu')->insert([
             [
                 'parent_id' => 0,
@@ -108,6 +111,10 @@ class Init extends BaseCommand
             'name'           => 'wang',
             'remember_token' => 'rYvRAaNfY5aoh3kkA6mkyz20AXUBujLFW61KlstM0fYdm3rxmWF7H3E9Qi4X',
         ]);
-
+        DB::table('students')->insert([
+            'username' => 'yu',
+            'name'     => 'yu',
+            'password' => '$2y$10$XSTfuL0gaFsxKhptMkR0J.TChSKOs0XKxUcx6WaLfjusIsuvA2QWa',
+        ]);
     }
 }
