@@ -10,10 +10,8 @@
         "encore/laravel-admin": "1.*",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/passport": "~4.0",
         "laravel/tinker": "~1.0",
-        "ramsey/uuid": "^3.9",
-        "smartins/passport-multiauth": "^3.0"
+        "ramsey/uuid": "^3.9"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -38,9 +36,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-                "laravel/passport"
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {

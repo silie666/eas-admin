@@ -3,12 +3,10 @@
 namespace App;
 
 use Encore\Admin\Auth\Database\Administrator;
-use SMartins\PassportMultiauth\HasMultiAuthApiTokens;
 
 
 class Teacher extends Administrator
 {
-    use HasMultiAuthApiTokens;
 
     protected static function boot()
     {
