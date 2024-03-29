@@ -115,6 +115,11 @@ class TeacherController extends AdminController
             }
         });
 
+        $form->saved(function (Form $form) {
+            $roleModel = config('admin.database.roles_model');
+            $form->model()->roles()->sync($roleModel::whereSlug($this->roleSlug)->value('id'));
+        });
+
         return $form;
     }
 }

@@ -12,9 +12,9 @@ class Teacher extends Administrator
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::created(function ($model) {
             $roleModel = config('admin.database.roles_model');
-            $model->roles()->attach($roleModel->whereSlug('teacher')->value('id'));
+            $model->roles()->attach($roleModel->whereSlug($this->roleSlug)->value('id'));
         });
     }
 }

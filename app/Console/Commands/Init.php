@@ -69,13 +69,17 @@ class Init extends BaseCommand
                 'menu_id' => 9,
             ],
             [
-                'role_id' => 1,
-                'menu_id' => 8,
+                'role_id' => 2,
+                'menu_id' => 10,
             ],
             [
-                'role_id' => 2,
-                'menu_id' => 8,
+                'role_id' => 3,
+                'menu_id' => 9,
             ],
+            [
+                'role_id' => 3,
+                'menu_id' => 2,
+            ]
         ]);
         DB::table('admin_role_permissions')->insert([
             [
@@ -94,6 +98,26 @@ class Init extends BaseCommand
                 'role_id'       => 2,
                 'permission_id' => 6,
             ],
+            [
+                'role_id'       => 3,
+                'permission_id' => 2,
+            ],
+            [
+                'role_id'       => 3,
+                'permission_id' => 3,
+            ],
+            [
+                'role_id'       => 3,
+                'permission_id' => 4,
+            ],
+            [
+                'role_id'       => 3,
+                'permission_id' => 5,
+            ],
+            [
+                'role_id'       => 3,
+                'permission_id' => 7,
+            ],
         ]);
         DB::table('admin_role_users')->insert(
             [
@@ -102,8 +126,14 @@ class Init extends BaseCommand
             ]
         );
         DB::table('admin_roles')->insert([
-            'name' => 'Teacher',
-            'slug' => 'teacher',
+            [
+                'name' => 'Teacher',
+                'slug' => 'teacher',
+            ],
+            [
+                'name' => 'Admin',
+                'slug' => 'admin',
+            ],
         ]);
         DB::table('admin_users')->insert([
             'username'       => 'teacher',
@@ -116,5 +146,11 @@ class Init extends BaseCommand
             'name'     => 'yu',
             'password' => '$2y$10$XSTfuL0gaFsxKhptMkR0J.TChSKOs0XKxUcx6WaLfjusIsuvA2QWa',
         ]);
+
+        DB::table('admin_role_users')->where('user_id',1)->update(
+            [
+                'role_id' => 3,
+            ]
+        );
     }
 }
